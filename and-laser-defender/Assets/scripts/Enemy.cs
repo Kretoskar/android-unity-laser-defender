@@ -55,6 +55,10 @@ public class Enemy : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         DamageDealer damageDealer = collision.GetComponent<DamageDealer>();
+        if(!damageDealer)
+        {
+            return;
+        }
         ProcessHit(damageDealer);
     }
 

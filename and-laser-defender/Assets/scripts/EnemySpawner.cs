@@ -6,9 +6,9 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour {
 
     [SerializeField]
-    List<WaveConfig> waveConfigs;
+    private List<WaveConfig> waveConfigs;
 
-    int startingWave = 0;
+    private int startingWave = 0;
 
 	// Use this for initialization
 	void Start () {

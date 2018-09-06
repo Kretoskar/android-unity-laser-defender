@@ -8,24 +8,24 @@ public class Player : MonoBehaviour {
 
     //config params
     [SerializeField]
-    float moveSpeed = 25f;
+    private float moveSpeed = 25f;
 
     [SerializeField]
-    float padding = 0.5f;
+    private float padding = 0.5f;
 
     [SerializeField]
-    float yMaxPadding = 4f;
+    private float yMaxPadding = 4f;
 
     [SerializeField]
-    GameObject laserPrefab;
+    private GameObject laserPrefab;
 
     [SerializeField]
-    float laserSpeed = 10f;
+    private float laserSpeed = 10f;
 
-    float xMin;
-    float xMax;
-    float yMin;
-    float yMax;
+    private float xMin;
+    private float xMax;
+    private float yMin;
+    private float yMax;
 
     private void Start()
     {

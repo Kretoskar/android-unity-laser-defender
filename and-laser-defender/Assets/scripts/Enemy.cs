@@ -22,6 +22,11 @@ public class Enemy : MonoBehaviour {
     [SerializeField]
     private GameObject laserPrefab;
 
+    [SerializeField]
+    private GameObject deathVFX;
+
+    private float durationOfExplosion = 1f;
+
     private void Start()
     {
         ResetShotCounter();
@@ -68,8 +73,15 @@ public class Enemy : MonoBehaviour {
         damageDealer.OnHit();
         if (health <= 0)
         {
-            Destroy(gameObject);
+            Die();
         }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
+        GameObject explosion = Instantiate(deathVFX, transform.position, transform.rotation);
+        Destroy(explosion, durationOfExplosion);
     }
 
     private void ResetShotCounter()

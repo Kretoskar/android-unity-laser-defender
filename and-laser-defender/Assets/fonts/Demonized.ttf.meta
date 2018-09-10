@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 0049a7a133aeb4b42b7f831b63e87682
+timeCreated: 1536592382
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Demonized
+  fontNames:
+  - Demonized
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -27,6 +27,15 @@ public class Player : MonoBehaviour {
     [SerializeField]
     private float laserSpeed = 10f;
 
+    [SerializeField]
+    private AudioClip deathSFX;
+
+    [SerializeField]
+    private GameObject deathVFX;
+
+    private float durationOfExplosion = 1f;
+
+    private float deathSoundVolume = 0.7f;
 
     private float xMin;
     private float xMax;
@@ -59,8 +68,16 @@ public class Player : MonoBehaviour {
         damageDealer.OnHit();
         if (health <= 0)
         {
-            Destroy(gameObject);
+            Die();
         }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
+        GameObject explosion = Instantiate(deathVFX, transform.position, transform.rotation);
+        Destroy(explosion, durationOfExplosion);
+        AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position, deathSoundVolume);
     }
 
     private void Fire()

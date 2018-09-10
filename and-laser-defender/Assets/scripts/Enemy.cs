@@ -25,7 +25,12 @@ public class Enemy : MonoBehaviour {
     [SerializeField]
     private GameObject deathVFX;
 
+    [SerializeField]
+    private AudioClip deathSFX;
+
     private float durationOfExplosion = 1f;
+
+    private float deathSoundVolume = 0.7f;
 
     private void Start()
     {
@@ -82,6 +87,7 @@ public class Enemy : MonoBehaviour {
         Destroy(gameObject);
         GameObject explosion = Instantiate(deathVFX, transform.position, transform.rotation);
         Destroy(explosion, durationOfExplosion);
+        AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position, deathSoundVolume);
     }
 
     private void ResetShotCounter()

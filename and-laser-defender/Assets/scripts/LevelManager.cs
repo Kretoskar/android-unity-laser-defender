@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour {
 
 
-    private int waitSecForLoad = 3;
+    private int waitSecForLoad = 2;
 
 	public void LoadStartMenu()
     {

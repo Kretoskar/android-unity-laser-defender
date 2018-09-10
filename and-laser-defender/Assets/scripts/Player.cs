@@ -33,9 +33,14 @@ public class Player : MonoBehaviour {
     [SerializeField]
     private GameObject deathVFX;
 
+    [SerializeField]
+    private AudioClip laserSound;
+
     private float durationOfExplosion = 1f;
 
     private float deathSoundVolume = 0.7f;
+
+    private float laserSoundVolume = 0.3f;
 
     private float xMin;
     private float xMax;
@@ -90,6 +95,8 @@ public class Player : MonoBehaviour {
                 Quaternion.identity) as GameObject;
 
             laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, laserSpeed);
+
+            AudioSource.PlayClipAtPoint(laserSound, Camera.main.transform.position, laserSoundVolume);
         }
     }
 

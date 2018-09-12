@@ -111,6 +111,11 @@ public class Player : MonoBehaviour {
         transform.position = new Vector2(newXPos, newYPos);
     }
 
+    public int GetHealth()
+    {
+        return health;
+    }
+
     private void SetUpMoveBoundaries()
     {
         Camera gameCamera = Camera.main;

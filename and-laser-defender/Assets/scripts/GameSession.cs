@@ -33,16 +33,16 @@ public class GameSession : MonoBehaviour {
 
     public void AddToScore(int additionalScore)
     {
+        score += additionalScore;
         int highScore = PlayerPrefs.GetInt(highScoreKey, 0);
-        if (score > highScore)
+        if (score >= highScore)
         {
             PlayerPrefs.SetInt(highScoreKey, score);
-        }
-        score += additionalScore;
+        }   
     }
 
     public void ResetGame()
     {
-        Destroy(gameObject);
+        score = 0;
     }
 }

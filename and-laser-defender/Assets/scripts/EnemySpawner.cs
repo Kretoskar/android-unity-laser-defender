@@ -20,11 +20,10 @@ public class EnemySpawner : MonoBehaviour {
     {
         while (true)
         {
-            for (int i = startingWave; i < waveConfigs.Count; i++)
-            {
-                var currentWave = waveConfigs[i];
-                yield return StartCoroutine(SpawnAllEnemiesInWave(currentWave));
-            }
+            int allWaves = waveConfigs.Count;
+            int currentWaveIndex = UnityEngine.Random.Range(0, allWaves);
+            var currentWave = waveConfigs[currentWaveIndex];
+            yield return StartCoroutine(SpawnAllEnemiesInWave(currentWave));
         }
     }
 

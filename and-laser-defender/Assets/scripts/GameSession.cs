@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameSession : MonoBehaviour {
 
     private int score = 0;
+    private string highScoreKey = "HighScore";
 
     private void Awake()
     {
@@ -32,6 +33,11 @@ public class GameSession : MonoBehaviour {
 
     public void AddToScore(int additionalScore)
     {
+        int highScore = PlayerPrefs.GetInt(highScoreKey, 0);
+        if (score > highScore)
+        {
+            PlayerPrefs.SetInt(highScoreKey, score);
+        }
         score += additionalScore;
     }
 

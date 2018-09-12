@@ -11,8 +11,8 @@ public class Enemy : MonoBehaviour {
     private int scoreValue = 150;
 
     [Header("Shooting")]
-    [SerializeField]
-    private float shotCounter;  //serialized for debuging porpouses
+    private float shotCounter; 
+
     [SerializeField]
     private float minTimebetweenShots = 0.2f;
     [SerializeField]

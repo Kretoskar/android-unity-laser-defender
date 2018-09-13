@@ -36,11 +36,16 @@ public class Player : MonoBehaviour {
     [SerializeField]
     private AudioClip laserSound;
 
+    [SerializeField]
+    private float projectileFiringPeriod = 0.3f;
+
     private float durationOfExplosion = 1f;
 
     private float deathSoundVolume = 0.7f;
 
     private float laserSoundVolume = 0.3f;
+
+    private Coroutine firingCoroutine;
 
     private float xMin;
     private float xMax;
@@ -90,14 +95,26 @@ public class Player : MonoBehaviour {
     {
         if (Input.GetMouseButtonDown(0))    //both for mouse and touching screen
         {
+            firingCoroutine = StartCoroutine(FireContinously());
+        }
+        if(Input.GetMouseButtonUp(0))
+        {
+            StopCoroutine(firingCoroutine);
+        }
+    }
+
+    IEnumerator FireContinously()
+    {
+        while (true)
+        {
             GameObject laser = Instantiate(
-                laserPrefab, 
-                transform.position, 
-                Quaternion.identity) as GameObject;
-
+                     laserPrefab,
+                     transform.position,
+                     Quaternion.identity) as GameObject;
             laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, laserSpeed);
-
             AudioSource.PlayClipAtPoint(laserSound, Camera.main.transform.position, laserSoundVolume);
+
+            yield return new WaitForSeconds(projectileFiringPeriod);
         }
     }
 

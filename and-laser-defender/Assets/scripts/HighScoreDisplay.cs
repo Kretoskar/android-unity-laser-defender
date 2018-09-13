@@ -6,14 +6,12 @@ using UnityEngine.UI;
 public class HighScoreDisplay : MonoBehaviour {
 
     private Text scoreText;
-    private GameSession gameSession;
     private string highScoreKey = "HighScore";
 
     // Use this for initialization
     void Start()
     {
         scoreText = GetComponent<Text>();
-        gameSession = FindObjectOfType<GameSession>();
     }
 
     // Update is called once per frame

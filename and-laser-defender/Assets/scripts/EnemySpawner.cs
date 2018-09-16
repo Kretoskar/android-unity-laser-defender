@@ -23,7 +23,9 @@ public class EnemySpawner : MonoBehaviour {
             int allWaves = waveConfigs.Count;
             int currentWaveIndex = UnityEngine.Random.Range(0, allWaves);
             var currentWave = waveConfigs[currentWaveIndex];
-            yield return StartCoroutine(SpawnAllEnemiesInWave(currentWave));
+            StartCoroutine(SpawnAllEnemiesInWave(currentWave));
+            float timer = UnityEngine.Random.Range(1.5f, 3f);
+            yield return new WaitForSeconds(timer);
         }
     }
 
